@@ -4,7 +4,7 @@ var smtp = {
   secure: true,
   auth: {
     user: "rupam@doomshell.com",
-    pass: "Rupam@123",
+    pass: "Rupamsingh@123",
   },
 };
 

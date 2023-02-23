@@ -1,5 +1,7 @@
 {
   "environment": "development",
   "port": "3000",
-  "secretkey": "asdfghjjklzxcvbnmqwertyuiopo"
+  "secretkey": "asdfghjjklzxcvbnmqwertyuiopo",
+  "MONGODB_URL":"mongodb+srv://ashishkumawat097:btamTIJqb7TEYa2g@backendapi.b1afnc1.mongodb.net/backendapi?retryWrites=true&w=majority",
+  "LOCAL_URL":"mongodb://localhost:27017/"
 }

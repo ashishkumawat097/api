@@ -16,6 +16,8 @@ router.post(
   usersController.registerUser
 );
 
+router.post("/loginUser",usersValidators.loginUser,usersController.loginUser);
+
 // router.post("/loginUser", usersValidators.loginUser, usersController.loginUser);
 
 // router.post("/bookComment", auth, commentsValidater.commentsBook, commentsController.insertComment);

@@ -17,5 +17,6 @@
   "insert_success_user": "User inserted Successfully",
   "user_success": "Users list",
   "login_success": "Login Success",
-  "user_login_fail": "Invalide Cridential"
+  "user_login_fail": "Invalide Cridential",
+  "user_update": " Updated Successfully"
 }

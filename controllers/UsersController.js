@@ -5,8 +5,13 @@ const User = require("../models/users");
 
 // User Register
 module.exports.registerUser = async (req, res) => {
+
   try {
-    let user = await User.findOne({ email: req.body.email });
+    let email =req.body.email;
+    let first_name =req.body.first_name;
+    let last_name =req.body. last_name;
+    let user = await User.findOne({ email: email });
+   
 
     if (user) {
       responseManagement.sendResponse(
@@ -17,12 +22,17 @@ module.exports.registerUser = async (req, res) => {
     } else {
       var password = req.body.password;
       delete req.body.password;
+      console.log(req.body);
+      // return false;
       const users = await User(req.body).save();
+      // console.log(users);
+      // return false;
       users.setPassword(password);
-      // console.log(users);return
+      // console.log(users);
       await User.updateOne({ _id: users._id }, users);
       responseManagement.sendMail(
         req.body.email,
+
         req.body.first_name,
         "Dear " + req.body.first_name + req.body.last_name + "",
 
@@ -77,18 +87,22 @@ module.exports.registerUser = async (req, res) => {
     responseManagement.sendResponse(
       res,
       httpStatus.INTERNAL_SERVER_ERROR,
-      messages.internal_server_error
+      messages.internal_server_error,
+      date,
     );
   }
 };
 
+
 // User Login
 
 module.exports.loginUser = async (req, res) => {
+
   try {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
+    // console.log(user); return false;
 
     if (user && user.hash && user.salt) {
       if (user.validatePassword(password)) {
@@ -129,3 +143,5 @@ module.exports.loginUser = async (req, res) => {
     );
   }
 };
+
+//update user

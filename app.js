@@ -9,10 +9,12 @@ const { errors } = require("celebrate");
 const mongoose = require("mongoose");
 const config = require("./config/config.json");
 const db = require("./config/database.json");
-var url = `mongodb://${db.development.host}:${db.development.port}/${db.development.database}`;
 
+app.get("/",(req , res) =>{
+res.status(200).send("<h1>Hello welcome to API Home Page</h1>");
+});
 // Connecting database
-mongoose.connect(url);
+mongoose.connect(config.MONGODB_URL);
 mongoose.connection.on("error", (err) => console.log(err));
 mongoose.connection.on("open", () => console.log("Successfully connected "));
 
